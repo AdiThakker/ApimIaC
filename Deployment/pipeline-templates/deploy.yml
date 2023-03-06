@@ -1,0 +1,16 @@
+parameters:
+  - name: environment
+    displayName: Environment
+    type: string
+    default: dev
+    values:
+      - dev
+      - staging
+      - prod
+
+stages:
+- stage: DeployResources_${{parameters.environment}}
+  displayName: Deploy Resources - {{parameters.environment}}
+  pool:
+    vmImage: 'ubuntu-latest'
+    
